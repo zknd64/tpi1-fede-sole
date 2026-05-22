@@ -55,7 +55,7 @@ for j in range(columnas):
     for i in range(filas):
         suma += M[i][j]
     promedio = suma / filas
-    print(funciones[j],":",promedio ,"ms")
+    print(servidores[j],":",promedio ,"ms")
 
 # ============================================================
 # PARTE B - Punto 4: Transpuesta de M
@@ -77,8 +77,8 @@ for i in range(filas):
         MT[j][i] = M[i][j]
 
 print("\n Matriz transpuesta M^T:")
-for fila in MT:
-    print(" ", fila)
+for i in range(filas):
+    print(" ", MT[i])
 
 print("""
  ¿Qué representa M^T en este contexto?
@@ -101,8 +101,7 @@ for x in range(55):
 print()
 
 T = [[0]*filas for x in range(columnas)]
-for i in range(filas):
-    fila = []
+for i in range(filas):    
     for j in range(columnas):
         suma = 0
         for k in range(columnas):
@@ -111,9 +110,8 @@ for i in range(filas):
 
 
 print("\n Matriz T = M * C:")
-for fila in T:
-    print(" ", fila)
-
+for i in range(filas):
+    print(" ", T[i])
 print("""
     Que representa T?
    Cada valor T[i][j] es la suma ponderada del tiempo de
