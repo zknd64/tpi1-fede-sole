@@ -2,20 +2,9 @@ A = [101, 102, 103, 104, 105, 106]
 B = [104, 105, 106, 107, 108]
 C = [102, 105, 109]
 
-LARGO_A = 5
-LARGO_B = 4
-LARGO_C = 2
-
-def union_grupos(vector_A,vector_B,largo_vector_A,largo_vector_B):
-    vector_resultado = []*largo_vector_A+largo_vector_B
-    contador = 0
-    for  i in range(largo_vector_A):
-        vector_resultado[i] = vector_A[i]
-        contador =+ 1
-    for i in range(largo_vector_B):
-        vector_resultado[i] = vector_A[i]
-        contador += 1
-    return vector_resultado
+INDICE_A = 5
+INDICE_B = 4
+INDICE_C = 2
 
 def usuario_en_vector(vector_objetivo,usuario_objetivo,largo_vector):
     for usuario in range(largo_vector):
@@ -27,29 +16,36 @@ def usuario_en_vector(vector_objetivo,usuario_objetivo,largo_vector):
 
 #usuarios que utilizan ambas plataformas
 print("A U B = " ,end= " ")
-for usuario in range(LARGO_A):
-   if usuario_en_vector(B,A[usuario],LARGO_B):
+for usuario in range(INDICE_A):
+   if usuario_en_vector(B,A[usuario],INDICE_B
+):
     print (usuario, end=" ")
 
 #usuarios que utilizan al menos una plataforma 
 print("\n x ∈ A ∨ x ∈ B = " ,end = " ")
-for usuario in range(LARGO_A):
+for usuario in range(INDICE_A):
   print (A[usuario], end= " ") 
-for usuario in range(LARGO_B):
+
+for usuario in range(INDICE_B):
   print (B[usuario], end=" " )
+
 #Usuarios que utilizan la plataforma, pero no presentan errores 
 print("\nUsuarios sin errores:")
-for usuario in range(LARGO_C):
-    if not usuario_en_vector(A,C[usuario],LARGO_A):
+for usuario in range(INDICE_C):
+    if not usuario_en_vector(A,C[usuario],INDICE_A
+):
         print(usuario)
-for usuario in range(LARGO_B):
-    if not usuario_en_vector(B,B[usuario],LARGO_B):
+for usuario in range(INDICE_B):
+    if not usuario_en_vector(B,B[usuario],INDICE_B
+):
         print(usuario)
+
 #Usuarios que utilizan exclusivamente una sola plataforma
 print ("\n usuarios que utilizan exclusivamente una sola plataforma:")
-for usuario in range(LARGO_A):
+for usuario in range(INDICE_A):
     usuario_objetivo = A[usuario]
-    if not usuario_en_vector(B,usuario_objetivo,LARGO_B):
+    if not usuario_en_vector(B,usuario_objetivo,INDICE_B
+):
         print (usuario)
 for usuario in B:
     if usuario not in A:
@@ -68,11 +64,10 @@ for usuario in A:
 
 # Crear lista con todos los usuarios
 
-todos = [0]*14
+todos = [0]*[]
 contador= 0 
-for usuario in A and B and C:
-    todos[0]  = usuario
-    contador += 1
+for usuario in leng(INDICE_A):
+
     
 
         

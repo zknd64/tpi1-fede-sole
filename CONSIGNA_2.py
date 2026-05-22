@@ -22,9 +22,6 @@ def formula_cuadratica(a,b,c):
         raiz2 = (-b - discriminante)/(2*a)
     return raiz1,raiz2
 
-def crear_grafico():
-    fig = plot.figure()
-    fig, ax = plot.sublplots(2,2)
 
 def barato(x):
 
@@ -43,8 +40,6 @@ def barato(x):
     else:
 
         return "C"
-
-
 
 
 # 1) Pendiente y ordenada
@@ -107,7 +102,6 @@ raiz_1,raiz_2 = formula_cuadratica(-2,80,100)
 print("\n========== PARTE B ==========")
 
 # Valores
-
 valores = [0, 5, 10, 15, 20, 25, 30, 40, 50]
 LARGO_VALORES = 8
 # 5 y 7) Evaluar funciones
