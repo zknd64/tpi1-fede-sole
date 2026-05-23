@@ -1,0 +1,109 @@
+# ============================================================
+#  TPI - Análisis de rendimiento en un sistema distribuido
+# ============================================================
+
+# --- Definición de las matrices ---
+
+M = [
+    [120, 150, 100],
+    [200, 180, 220],
+    [ 90, 110,  95]
+]
+
+C = [
+    [30, 20, 10],
+    [15, 25, 20],
+    [40, 10, 30]
+]
+
+filas    = 3
+columnas = 3
+
+# ============================================================
+# PARTE B - Punto 3: Tiempos promedio de ejecución
+# ============================================================
+
+print("=" * 55)
+print("  PARTE B — Tiempos promedio de ejecución")
+print("=" * 55)
+
+# -- Tiempo promedio por FUNCIÓN (promedio de cada fila de M) --
+funciones = ["Autenticación", "Procesamiento de datos", "Generación de reportes"]
+
+print("\n Tiempo promedio de ejecución por función (fila de M):")
+for i in range(filas):
+    suma = 0
+    for j in range(columnas):
+        suma += M[i][j]
+    promedio = suma / columnas
+    print(f"  {funciones[i]}: {promedio:.2f} ms")
+
+# -- Tiempo promedio por SERVIDOR (promedio de cada columna de M) --
+servidores = ["Servidor 1", "Servidor 2", "Servidor 3"]
+
+print("\n Tiempo promedio de ejecución por servidor (columna de M):")
+for j in range(columnas):
+    suma = 0
+    for i in range(filas):
+        suma += M[i][j]
+    promedio = suma / filas
+    print(f"  {servidores[j]}: {promedio:.2f} ms")
+
+# ============================================================
+# PARTE B - Punto 4: Transpuesta de M
+# ============================================================
+
+print("\n" + "=" * 55)
+print("  PARTE B — Transpuesta de M")
+print("=" * 55)
+
+MT = []
+for j in range(columnas):
+    fila = []
+    for i in range(filas):
+        fila.append(M[i][j])
+    MT.append(fila)
+
+print("\n Matriz transpuesta M^T:")
+for fila in MT:
+    print(" ", fila)
+
+print("""
+ ¿Qué representa M^T en este contexto?
+   En M original: filas = funciones, columnas = servidores.
+   En M^T:        filas = servidores, columnas = funciones.
+   Es decir, M^T nos permite analizar, para cada servidor,
+   cuánto tarda en ejecutar cada función.
+""")
+
+# ============================================================
+# PARTE C - Punto 5: Producto T = M * C
+# ============================================================
+
+print("=" * 55)
+print("  PARTE C — Producto matricial T = M * C")
+print("=" * 55)
+
+T = []
+for i in range(filas):
+    fila = []
+    for j in range(columnas):
+        suma = 0
+        for k in range(columnas):
+            suma += M[i][k] * C[k][j]
+        fila.append(suma)
+    T.append(fila)
+
+print("\n Matriz T = M * C:")
+for fila in T:
+    print(" ", fila)
+
+print("""
+ ¿Qué representa T?
+   Cada valor T[i][j] es la suma ponderada del tiempo de
+   ejecución de la función i en todos los servidores,
+   multiplicado por la cantidad de veces que se ejecutó
+   en cada servidor.
+   En otras palabras: T indica la CARGA TOTAL de tiempo
+   de ejecución de cada función en cada servidor.
+""")
